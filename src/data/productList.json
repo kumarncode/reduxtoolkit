@@ -1,0 +1,39 @@
+{
+    "products":[
+    {
+      "id": 1,
+      "name": "Samsung S25",
+      "price": 99.99,
+      "details": "High-quality wireless headphones with noise cancellation and 20 hours battery life.",
+      "imgUrl": "./images/1.webp"
+    },
+    {
+      "id": 2,
+      "name": "Samsung M15",
+      "price": 699.99,
+      "details": "Latest 5G smartphone with 128GB storage and an advanced AI camera.",
+      "imgUrl": "./images/2.webp"
+    },
+    {
+      "id": 3,
+      "name": "Samsung A14",
+      "price": 199.99,
+      "details": "Waterproof smartwatch with heart rate monitoring and GPS tracking.",
+      "imgUrl": "./images/3.webp"
+    },
+    {
+      "id": 4,
+      "name": "Samsung A16",
+      "price": 1299.99,
+      "details": "High-performance gaming laptop with 16GB RAM and RTX 3070 GPU.",
+      "imgUrl": "./images/4.webp"
+    },
+    {
+      "id": 5,
+      "name": "Samsung F15",
+      "price": 49.99,
+      "details": "Portable Bluetooth speaker with 360-degree sound and 12-hour battery life.",
+      "imgUrl": "./images/5.webp"
+    }
+  ]
+}
