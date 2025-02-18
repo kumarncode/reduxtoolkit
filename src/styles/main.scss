@@ -3,10 +3,31 @@ $black:#000000;
 $primary:#0d6efd;
 $secodary:#6c757d;
 $danger:#dc3545;
-body{
-    color: $secodary;
-    background-color: $black;
-}
+body {  
+    .light {
+      color: $black; // Change color when .dark class is applied
+      background-color: $white;
+    }
+    .dark{
+        color: $white;
+        background-color: $black;
+        min-height: 100vh;
+    }
+  }
+  .toggle {
+    margin-top: 24px;
+    cursor: pointer;
+    text-decoration: none;
+    color: $white;
+  }
+// .dark{
+//     color: $secodary;
+//     background-color: $black;
+// }
+// .light{
+//     color: $black;
+//     background-color: $white;
+// }
 span.cartNo {
     font-size: 10px;
     background-color: $secodary;

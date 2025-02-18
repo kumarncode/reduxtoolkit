@@ -1,8 +1,21 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import themeSlice from "../data/themeSlice";
+import langSlice from "../data/langSlice";
 
 const Navbar = ()=>{
-  const {cartProductIds} = useSelector((state)=>state.cart)
+  // const {cartProductIds} = useSelector((state)=>state.cart)
+  // const {theme}=useSelector((state)=> state.theme)
+  // const {toggleTheme} = themeSlice.actions;
+  // const dispatch = useDispatch();
+  const {toggleTheme} = themeSlice.actions;
+  const {toggleLang} = langSlice.actions;
+  const dispatch = useDispatch();
+  const state =useSelector((state)=> state);
+  const cartProductIds = state.cart.cartProductIds;
+  const theme = state.theme.theme;
+  const lang = state.lang.lang;
+
     return(
         <>
             <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -13,6 +26,9 @@ const Navbar = ()=>{
     </button>
     <div className="collapse navbar-collapse" id="collapsibleNavbar">
       <ul className="navbar-nav">
+      <li className="nav-item">
+            <Link className="nav-link" to="/demo">Demo</Link>
+           </li>
       {/* <li className="nav-item">
          <Link className="nav-link" to="/cart">Cart</Link>
         </li>
@@ -29,7 +45,15 @@ const Navbar = ()=>{
            <span className="cartNo">{cartProductIds.length}</span>
         </Link>
            </li>
+           
+        <li className="nav-item"><a className="toggle ms-2" onClick={() => dispatch(toggleLang())}>{lang==="en"?"eng":"हिन्दी"} </a></li> 
+          <li className="ms-3 mt-2">
+          <div className="form-check form-switch">
+  <input onClick={() => dispatch(toggleTheme())} className={theme==="light"?"form-check-input bg-white":"form-check-input bg-dark"} type="checkbox" id="mySwitch" name="darkmode" value="no" />
+</div>
+          </li>
       </ul>
+      
     </div>
   </div>
 </nav>

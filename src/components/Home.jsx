@@ -7,15 +7,17 @@ const Home = ()=>{
    const {addToCart, removeFromCart} = cartSlice.actions;
    const dispatch = useDispatch();
    const state =useSelector((state)=> state);
-   const {cart, products} = state
-   //console.log(cartProductIds);
+   const {cart, products, lang} = state
+   console.log("langf",lang);
    useEffect(()=>{
      dispatch(fetchAllProducts('http://localhost:5000/products'));
    }, [dispatch])
     return(
         <>
     <div className='container'>
-      <div className='row'>
+{lang.lang==="en"?
+<>
+<div className='row'>
       <div className='col-md-12'>
           <h1 className='my-3'>Home Page</h1>
         </div>
@@ -30,8 +32,29 @@ const Home = ()=>{
                 </div>
             </div>
         </div>)}
-       
       </div>
+</>
+:
+<>
+<div className='row'>
+      <div className='col-md-12'>
+          <h1 className='my-3'>होम पेज</h1>
+        </div>
+        {products.data?.map((item, index)=><div className='col-md-3 my-3' key={index}>
+            <div className='card'>
+                <img className="card-img-top1" alt={item.name} src={item.imgUrl} />
+                <div className='card-body'>
+                    <h5>{item.hname}</h5>
+                    <p><span className='d-block'>रु. {item.price}</span></p>
+                    {!cart.cartProductIds.includes(item.id) && (<button className='btn btn-primary' onClick={()=>dispatch(addToCart(item.id))}>Add to Cart</button>)}
+                    {cart.cartProductIds.includes(item.id) &&(<button className='btn btn-primary' onClick={()=>dispatch(removeFromCart(item.id))}>Remove from Cart</button>)}
+                </div>
+            </div>
+        </div>)}
+      </div>
+</>
+}
+     
    </div>
         </>
     )

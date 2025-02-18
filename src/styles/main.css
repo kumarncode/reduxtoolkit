@@ -1,6 +1,18 @@
-body {
-  color: #6c757d;
+body .light {
+  color: #000000;
+  background-color: #ffffff;
+}
+body .dark {
+  color: #ffffff;
   background-color: #000000;
+  min-height: 100vh;
+}
+
+.toggle {
+  margin-top: 24px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffffff;
 }
 
 span.cartNo {
@@ -17,5 +29,4 @@ span.cartNo {
 img.card-img-top1 {
   height: 100px;
   margin: 15px auto;
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
