@@ -9,9 +9,11 @@ import {
   Routes
 } from "react-router-dom";
 function App() {
-  const {theme}=useSelector((state)=> state.theme)
+  const state =useSelector((state)=> state);
+  const theme=state.theme.theme;
+  const font=state.font.fontSize;
   return (
-   <div className={theme}>
+   <div className={theme} style={{fontSize:`${font}px`}}>
    <Router>
    <Navbar />
    <Routes>

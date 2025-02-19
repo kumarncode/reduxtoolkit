@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import themeSlice from "../data/themeSlice";
 import langSlice from "../data/langSlice";
+import fontSlice from "../data/fontSlice";
 
 const Navbar = ()=>{
   // const {cartProductIds} = useSelector((state)=>state.cart)
@@ -10,11 +11,13 @@ const Navbar = ()=>{
   // const dispatch = useDispatch();
   const {toggleTheme} = themeSlice.actions;
   const {toggleLang} = langSlice.actions;
+  const {increaseFont,decreaseFont,intialFont} = fontSlice.actions;
   const dispatch = useDispatch();
   const state =useSelector((state)=> state);
   const cartProductIds = state.cart.cartProductIds;
   const theme = state.theme.theme;
   const lang = state.lang.lang;
+  //const font = state.font.fontSize;
 
     return(
         <>
@@ -47,6 +50,11 @@ const Navbar = ()=>{
            </li>
            
         <li className="nav-item"><a className="toggle ms-2" onClick={() => dispatch(toggleLang())}>{lang==="en"?"eng":"हिन्दी"} </a></li> 
+        <li className="nav-item">
+          <a className="toggle ms-2" onClick={()=>dispatch(increaseFont())}>A+</a>
+          <a className="toggle ms-2" onClick={()=>dispatch(intialFont())}>A</a>
+          <a className="toggle ms-2" onClick={()=>dispatch(decreaseFont())}>A-</a>
+        </li> 
           <li className="ms-3 mt-2">
           <div className="form-check form-switch">
   <input onClick={() => dispatch(toggleTheme())} className={theme==="light"?"form-check-input bg-white":"form-check-input bg-dark"} type="checkbox" id="mySwitch" name="darkmode" value="no" />

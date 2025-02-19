@@ -3,6 +3,7 @@ import cartSlice from "./cartSlice";
 import productSlice from "./productSlice";
 import themeSlice from "./themeSlice";
 import langSlice from "./langSlice";
+import fontSlice from "./fontSlice";
 
 const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
         products:productSlice.reducer,
         theme:themeSlice.reducer,
         lang:langSlice.reducer,
+        font:fontSlice.reducer,
     },
 })
 export default store;
